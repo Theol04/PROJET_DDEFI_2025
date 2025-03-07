@@ -1,0 +1,71 @@
+**Explication des colonnes de la base de données**
+
+1. **numer_sta** : Numéro de la station météorologique.
+2. **date** : Date et heure de l'observation.
+3. **pmer** : Pression au niveau de la mer (hPa).
+4. **tend** : Tendance barométrique sur une période donnée.
+5. **cod_tend** : Code associé à la tendance barométrique.
+6. **dd** : Direction du vent (degrés).
+7. **ff** : Vitesse moyenne du vent (m/s).
+8. **t** : Température de l'air (°C).
+9. **td** : Température du point de rosée (°C).
+10. **u** : Humidité relative (%).
+11. **vv** : Visibilité horizontale (km).
+12. **ww** : Temps présent (code de phénomène météorologique).
+13. **w1** : Temps passé 1 (code de phénomène météorologique).
+14. **w2** : Temps passé 2 (autre phénomène météorologique récent).
+15. **n** : Fraction de ciel couvert (octas).
+16. **nbas** : Couverture nuageuse de la couche la plus basse (octas).
+17. **hbas** : Hauteur de la base des nuages la plus basse (m).
+18. **cl** : Type de nuages bas.
+19. **cm** : Type de nuages moyens.
+20. **ch** : Type de nuages hauts.
+21. **pres** : Pression à la station (hPa).
+22. **niv_bar** : Niveau barométrique.
+23. **geop** : Géopotentiel (m).
+24. **tend24** : Variation de la pression sur 24 heures (hPa).
+25. **tn12** : Température minimale des 12 dernières heures (°C).
+26. **tn24** : Température minimale des 24 dernières heures (°C).
+27. **tx12** : Température maximale des 12 dernières heures (°C).
+28. **tx24** : Température maximale des 24 dernières heures (°C).
+29. **tminsol** : Température minimale du sol (°C).
+30. **sw** : Hauteur de la couche de neige (cm).
+31. **tw** : Température du sol (°C).
+32. **raf10** : Rafale maximale sur 10 minutes (m/s).
+33. **rafper** : Rafale maximale sur une période donnée (m/s).
+34. **per** : Période de mesure de la rafale.
+35. **etat_sol** : État du sol (code).
+36. **ht_neige** : Hauteur de neige (cm).
+37. **ssfrai** : Précipitations neigeuses fraîches (cm).
+38. **perssfrai** : Période d'accumulation de la neige fraîche (h).
+39. **rr1** : Cumul de précipitations sur 1 heure (mm).
+40. **rr3** : Cumul de précipitations sur 3 heures (mm).
+41. **rr6** : Cumul de précipitations sur 6 heures (mm).
+42. **rr12** : Cumul de précipitations sur 12 heures (mm).
+43. **rr24** : Cumul de précipitations sur 24 heures (mm).
+44. **phenspe1-4** : Phénomènes spéciaux observés.
+45. **nnuage1-4** : Nombre de nuages de chaque type.
+46. **ctype1-4** : Type de nuages observés.
+47. **hnuage1-4** : Hauteur des nuages (m).
+48. **coordonnees** : Coordonnées géographiques de la station.
+49. **nom** : Nom de la station.
+50. **type_de_tendance_barometrique** : Description textuelle de la tendance barométrique.
+51. **temps_passe_1** : Description du temps passé.
+52. **temps_present** : Description du temps actuel.
+53. **tc** : Température corrigée (°C).
+54. **tn12c, tn24c** : Températures minimales corrigées (12h et 24h).
+55. **tx12c, tx24c** : Températures maximales corrigées (12h et 24h).
+56. **tminsolc** : Température minimale du sol corrigée (°C).
+57. **latitude** : Latitude de la station.
+58. **longitude** : Longitude de la station.
+59. **altitude** : Altitude de la station (m).
+60. **libgeo** : Libellé géographique.
+61. **codegeo** : Code géographique de la station.
+62. **nom_epci** : Nom de l'EPCI (Établissement Public de Coopération Intercommunale).
+63. **code_epci** : Code de l'EPCI.
+64. **nom_dept** : Nom du département.
+65. **code_dep** : Code du département.
+66. **nom_reg** : Nom de la région.
+67. **code_reg** : Code de la région.
+68. **mois_de_l_annee** : Mois de l'observation (numérique).
+
