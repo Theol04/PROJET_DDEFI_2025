@@ -1,0 +1,57 @@
+from Pipeline.pipeline import download_data
+from ML.ml import load_best_model
+from ML.ml import ml 
+import os 
+import pickle 
+import json 
+import pandas as pd 
+
+def predict_rain_in_24h(departement):
+    """
+    Met à jour la base de données, récupère la dernière ligne et prédit la pluie dans 3h.
+
+    Args:
+        departement (str): Nom du département.
+
+    Returns:
+        float: Pourcentage de pluie prévu dans 3h.
+    """
+
+    # Télécharger et mettre à jour les données
+    url = "https://public.opendatasoft.com//api/explore/v2.1/catalog/datasets/donnees-synop-essentielles-omm/records"
+    download_data(url,departement)
+    fichier_csv = os.path.join( "BDD", f"data_{departement}.csv")
+    df = pd.read_csv(fichier_csv, parse_dates=["date"],low_memory=False)
+    if df.empty:
+        raise ValueError(f"❌ Aucune donnée disponible pour {departement}.")
+
+    # Récupérer la dernière observation
+    last_row = df.iloc[-1:].copy()  # Copie pour éviter les warnings
+
+    # Charger le meilleur modèle et ses features
+    model, features = load_best_model(departement)
+
+    # Vérifier que toutes les features sont disponibles
+    missing_cols = [col for col in features if col not in last_row.columns]
+    if missing_cols:
+        raise ValueError(f"❌ Colonnes manquantes dans les données récentes : {missing_cols}")
+
+    # Préparer les données pour la prédiction
+    X_latest = last_row[features]  # Garder uniquement les colonnes utilisées pour l'entraînement
+
+    # Faire la prédiction
+    rain_prediction = model.predict(X_latest)[0]  # Prédiction sur la dernière ligne
+
+    # Afficher le résultat
+    print(f"🌧️ Prédiction de pluie dans 24h heures pour {departement} : {rain_prediction:.2f} mm")
+
+    return rain_prediction
+
+
+if __name__ =='__main__': 
+    
+    departements = ["Drôme","Somme","Landes","Puy-de-Dôme","Marne","Vienne","Bas-Rhin"]
+    for departement in departements: 
+        features_to_keep = ["mois_de_l_annee","pmer","tend","ff", "ww","pres", "pmer", "raf10","rafper","etat_sol"]
+        #ml(departement,features_to_keep,accuracy_tolerance= 5)
+        predict_rain_in_24h(departement)
